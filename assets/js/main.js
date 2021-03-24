@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			hello: 'hello world',
 			arrayImg: [
 				'https://www.zeusnews.it/img/4/8/1/6/2/0/026184-620-google-vedi-immagini.jpg',
-				'https://i.pinimg.com/originals/50/71/71/507171aa58edce34f7f949258b37c7e1.jpg',
+				'https://i.etsystatic.com/11580503/r/il/f26782/1791521747/il_570xN.1791521747_3iww.jpg',
 				'https://i1.wp.com/questnews.it/wp-content/uploads/2020/08/berserk-data-ritorno-manga-kentaro-miura-v3-372494-e1598423834168.jpg?fit=1200%2C675&ssl=1',
 				'https://omnitos.com/wp-content/uploads/2020/12/maxresdefault-13.jpg',
 			],
@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
 				} else {
 					this.index++
 				}
+				setInterval(() => {
+					if (this.index >= this.arrayImg.length-1) {
+						this.index =0
+					} else {
+						this.index++
+					}
+				}, 3000)
 			},
 			prev: function () {
 				if (this.index <= 0) {
@@ -29,6 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
 					this.index--
 				}
 			},
+			
+			clickDot: function (dot) {
+				this.index = dot
+			}
 		}
 	})
 });
+
+setInterval

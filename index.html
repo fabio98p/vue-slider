@@ -12,18 +12,22 @@
 	
 	<div id="root">
 		<h1>{{ hello }}</h1>
-
 		<div class="slider">
 			<div class="arrow arrowleft">
 				<i @click='prev' class="fas fa-arrow-left"></i>
 			</div>
-			<img :src="arrayImg[index]" alt="">
+			<img @click='stop' :src="arrayImg[index]" alt="">
 			<div class="arrow arrowright">
 				<i @click='next' class="fas fa-arrow-right"></i>
 			</div>
 		</div>
 		<div class="dots">
-			<i v-for='dot in arrayImg.length' :class='(false) ? "active" : ""' class="fas fa-circle"></i>
+			<i
+			v-for='dot in arrayImg.length'
+			:class='(index == dot-1) ? "active" : "" '
+			class="fas fa-circle"
+			@click='clickDot(dot-1)'
+			></i>
  		</div>
 
 
