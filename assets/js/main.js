@@ -4,11 +4,30 @@ document.addEventListener('DOMContentLoaded', function () {
 	var root = new Vue({
 		el: '#root',
 		data: {
+			index: 0,
 			hello: 'hello world',
+			arrayImg: [
+				'https://www.zeusnews.it/img/4/8/1/6/2/0/026184-620-google-vedi-immagini.jpg',
+				'https://i.pinimg.com/originals/50/71/71/507171aa58edce34f7f949258b37c7e1.jpg',
+				'https://i1.wp.com/questnews.it/wp-content/uploads/2020/08/berserk-data-ritorno-manga-kentaro-miura-v3-372494-e1598423834168.jpg?fit=1200%2C675&ssl=1',
+				'https://omnitos.com/wp-content/uploads/2020/12/maxresdefault-13.jpg',
+			],
 		},
 		methods: {
-			helloo: function () {
-				this.hello = 'hello'
+
+			next: function () {
+				if (this.index >= this.arrayImg.length-1) {
+					this.index =0
+				} else {
+					this.index++
+				}
+			},
+			prev: function () {
+				if (this.index <= 0) {
+					this.index = this.arrayImg.length-1
+				} else {
+					this.index--
+				}
 			},
 		}
 	})

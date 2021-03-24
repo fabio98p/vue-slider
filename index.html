@@ -12,21 +12,25 @@
 	
 	<div id="root">
 		<h1>{{ hello }}</h1>
-		<button @click='helloo'>fai comparire hello</button>
+
+		<div class="slider">
+			<div class="arrow arrowleft">
+				<i @click='prev' class="fas fa-arrow-left"></i>
+			</div>
+			<img :src="arrayImg[index]" alt="">
+			<div class="arrow arrowright">
+				<i @click='next' class="fas fa-arrow-right"></i>
+			</div>
+		</div>
+		<div class="dots">
+			<i v-for='dot in arrayImg.length' :class='(false) ? "active" : ""' class="fas fa-circle"></i>
+ 		</div>
+
+
+
+
 	</div>
 
-	<div class="slider">
-		<div class="arrow arrowleft">
-			<i class="fas fa-arrow-left"></i>
-		</div>
-		<img src="https://www.zeusnews.it/img/4/8/1/6/2/0/026184-620-google-vedi-immagini.jpg" alt="">
-		<div class="arrow arrowright">
-			<i class="fas fa-arrow-right"></i>
-		</div>
-	</div>
-	<div class="dots">
-		
-	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="./assets/js/main.js"></script>
 	
