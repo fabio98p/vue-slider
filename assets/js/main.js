@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		data: {
 			index: 0,
 			hello: 'hello world',
+			inrervalPrev: '',
+			inrervalNext: '',
 			arrayImg: [
 				'https://www.zeusnews.it/img/4/8/1/6/2/0/026184-620-google-vedi-immagini.jpg',
 				'https://i.etsystatic.com/11580503/r/il/f26782/1791521747/il_570xN.1791521747_3iww.jpg',
@@ -16,14 +18,15 @@ document.addEventListener('DOMContentLoaded', function () {
 		methods: {
 
 			next: function () {
-				if (this.index >= this.arrayImg.length-1) {
-					this.index =0
+				if (this.index >= this.arrayImg.length - 1) {
+					this.index = 0
 				} else {
 					this.index++
 				}
-				setInterval(() => {
-					if (this.index >= this.arrayImg.length-1) {
-						this.index =0
+				clearInterval(this.inrervalPrev);
+				this.inrervalNext = setInterval(() => {
+					if (this.index >= this.arrayImg.length - 1) {
+						this.index = 0
 					} else {
 						this.index++
 					}
@@ -31,17 +34,28 @@ document.addEventListener('DOMContentLoaded', function () {
 			},
 			prev: function () {
 				if (this.index <= 0) {
-					this.index = this.arrayImg.length-1
+					this.index = this.arrayImg.length - 1
 				} else {
 					this.index--
 				}
+
+				clearInterval(this.inrervalNext);
+				this.inrervalPrev = setInterval(() => {
+					if (this.index <= 0) {
+						this.index = this.arrayImg.length - 1
+					} else {
+						this.index--
+					}
+				}, 3000)
+
 			},
-			
+			stop: function () {
+				clearInterval(this.inrervalPrev);
+				clearInterval(this.inrervalNext);
+			},
 			clickDot: function (dot) {
 				this.index = dot
 			}
 		}
 	})
 });
-
-setInterval
